@@ -1,0 +1,241 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+.naglowek {
+    background-color: #222;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.naglowek h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.ikona {
+    background-color: #444;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.strona {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    max-width: 1350px;
+    margin: 25px auto;
+    padding: 0 20px;
+    align-items: flex-start;
+}
+
+.produkty {
+    flex: 3;
+    min-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.produkt {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    width: 23%;
+    min-width: 165px;
+    text-align: center;
+}
+
+.produkt img {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.produkt h3 {
+    font-size: 16px;
+    margin: 12px 0 6px 0;
+}
+
+.produkt p {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    margin: 0 0 12px 0;
+}
+
+.dodaj {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 9px 12px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.dodaj:hover {
+    background-color: #0056b3;
+}
+
+.koszyk {
+    flex: 1;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    min-width: 320px;
+}
+
+.koszyk h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+.pusty {
+    color: #777;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.pozycja {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.gora {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.dol {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.ilosc button {
+    padding: 2px 8px;
+}
+
+.usun {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.rabat {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.rabat input {
+    flex: 1;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.rabat button {
+    padding: 7px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #eee;
+}
+
+.rabat button:hover {
+    background-color: #ddd;
+}
+
+.komunikat {
+    width: 100%;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.blad {
+    color: red;
+}
+
+.sukces {
+    color: green;
+}
+
+.podsumowanie {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.wiersz {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.razem {
+    font-weight: bold;
+    font-size: 17px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.dostawa {
+    background-color: #e9ecef;
+    padding: 9px;
+    border-radius: 4px;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.zamow {
+    width: 100%;
+    padding: 11px;
+    margin-top: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.zamow:hover:not(:disabled) {
+    background-color: #218838;
+}
+
+.zamow:disabled {
+    background-color: #ccc;
+}
+

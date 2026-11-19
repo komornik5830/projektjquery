@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 
-    <style>
-  
-    </style>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
        
@@ -16,12 +14,116 @@
 
         });
     
-        
-
-
     </script>
 </head>
 <body>
-    
+
+    <div class="naglowek">
+        <h1>Sklep komputerowy</h1>
+        <div class="ikona">
+            Koszyk (<span id="licznik">0</span>)
+        </div>
+    </div>
+
+    <div class="strona">
+        <div class="produkty">
+            <div class="produkt" data-nazwa="Klawiatura" data-cena="120">
+                <img src="klawa.png" alt="Klawiatura">
+                <h3>Klawiatura</h3>
+                <p>120 zł</p>
+                <button class="dodaj">Do koszyka</button>
+            </div>
+
+            <div class="produkt" data-nazwa="Myszka" data-cena="65">
+                <img src="mouse.png" alt="Myszka">
+                <h3>Myszka</h3>
+                <p>65 zł</p>
+                <button class="dodaj">Do koszyka</button>
+            </div>
+
+            <div class="produkt" data-nazwa="Słuchawki" data-cena="150">
+                <img src="sluchawki.png" alt="Słuchawki">
+                <h3>Słuchawki</h3>
+                <p>150 zł</p>
+                <button class="dodaj">Do koszyka</button>
+            </div>
+
+            <div class="produkt" data-nazwa="Podkładka" data-cena="35">
+                <img src="mousepad.png" alt="Podkładka">
+                <h3>Podkładka</h3>
+                <p>35 zł</p>
+                <button class="dodaj">Do koszyka</button>
+            </div>
+
+            <div class="produkt" data-nazwa="Kabel USB" data-cena="25">
+                <img src="usb.png" alt="Kabel USB">
+                <h3>Kabel USB</h3>
+                <p>25 zł</p>
+                <button class="dodaj">Do koszyka</button>
+            </div>
+
+            <div class="produkt" data-nazwa="Kamera HD" data-cena="90">
+                <img src="kamera.png" alt="Kamera HD">
+                <h3>Kamera HD</h3>
+                <p>90 zł</p>
+                <button class="dodaj">Do koszyka</button>
+            </div>
+
+            <div class="produkt" data-nazwa="Pendrive 64GB" data-cena="40">
+                <img src="pendrive.png" alt="Pendrive 64GB">
+                <h3>Pendrive 64GB</h3>
+                <p>40 zł</p>
+                <button class="dodaj">Do koszyka</button>
+            </div>
+
+            <div class="produkt" data-nazwa="Hub USB" data-cena="55">
+                <img src="usbhub.png" alt="Hub USB">
+                <h3>Hub USB</h3>
+                <p>55 zł</p>
+                <button class="dodaj">Do koszyka</button>
+            </div>
+        </div>
+
+
+        <div class="koszyk">
+            <h2>Twój koszyk</h2>
+
+            <div id="lista">
+                <p class="pusty">Koszyk jest pusty</p>
+            </div>
+
+            <div class="rabat">
+                <input type="text" id="kod" placeholder="Wpisz kod rabatowy">
+                <button id="uzyj">Użyj</button>
+                <div id="komunikat" class="komunikat"></div>
+            </div>
+
+            <div class="podsumowanie">
+                <div class="wiersz">
+                    <span>Produkty:</span>
+                    <span id="suma">0 zł</span>
+                </div>
+                <div class="wiersz" id="rabatwiersz" style="display: none; color: green;">
+                    <span>Rabat (10%):</span>
+                    <span id="znizka">0 zł</span>
+                </div>
+                <div class="wiersz">
+                    <span>Dostawa:</span>
+                    <span id="wysylka">0 zł</span>
+                </div>
+                <div class="wiersz razem">
+                    <span>Do zapłaty:</span>
+                    <span id="razem">0 zł</span>
+                </div>
+
+                <div id="dostawa" class="dostawa">
+                    Do darmowej dostawy brakuje 200 zł
+                </div>
+            </div>
+
+            <button id="zamow" class="zamow" disabled>Zamów</button>
+        </div>
+    </div>
+
 </body>
 </html>
