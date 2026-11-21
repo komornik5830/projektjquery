@@ -10,8 +10,43 @@
     <script>
        
         $(function(){
-        
+            let nazwy = [];
+            let ceny = [];
+            let ilosci = [];
 
+            $(".dodaj").click(function(){
+                let nazwa = $(this).data("nazwa");
+                let cena = $(this).data("cena");
+                let znaleziono = false;
+
+                for (let i = 0; i < nazwy.length; i++) {
+                    if (nazwy[i] == nazwa) {
+                        ilosci[i]++;
+                        znaleziono = true;
+                    }
+                }
+
+                if (!znaleziono) {
+                    let koniec = nazwy.length;
+                    nazwy[koniec] = nazwa;
+                    ceny[koniec] = cena;
+                    ilosci[koniec] = 1;
+                }
+
+                pokazKoszyk();
+            });
+
+            function pokazKoszyk() {
+                $("#lista").html("");
+
+                for (let i = 0; i < nazwy.length; i++) {
+                    $("#lista").append(
+                        '<div class="pozycja" data-cena="' + ceny[i] + '" data-ilosc="' + ilosci[i] + '">' +
+                        '<b>' + nazwy[i] + '</b> (' + ceny[i] + ' zł) - ' + ilosci[i] + ' szt.' +
+                        '</div>'
+                    );
+                }
+            }
         });
     
     </script>
@@ -31,56 +66,56 @@
                 <img src="klawa.png" alt="Klawiatura">
                 <h3>Klawiatura</h3>
                 <p>120 zł</p>
-                <button class="dodaj">Do koszyka</button>
+                <button class="dodaj" data-nazwa="Klawiatura" data-cena="120">Do koszyka</button>
             </div>
 
             <div class="produkt" data-nazwa="Myszka" data-cena="65">
                 <img src="mouse.png" alt="Myszka">
                 <h3>Myszka</h3>
                 <p>65 zł</p>
-                <button class="dodaj">Do koszyka</button>
+                <button class="dodaj" data-nazwa="Myszka" data-cena="65">Do koszyka</button>
             </div>
 
             <div class="produkt" data-nazwa="Słuchawki" data-cena="150">
                 <img src="sluchawki.png" alt="Słuchawki">
                 <h3>Słuchawki</h3>
                 <p>150 zł</p>
-                <button class="dodaj">Do koszyka</button>
+                <button class="dodaj" data-nazwa="Słuchawki" data-cena="150">Do koszyka</button>
             </div>
 
             <div class="produkt" data-nazwa="Podkładka" data-cena="35">
                 <img src="mousepad.png" alt="Podkładka">
                 <h3>Podkładka</h3>
                 <p>35 zł</p>
-                <button class="dodaj">Do koszyka</button>
+                <button class="dodaj" data-nazwa="Podkładka" data-cena="35">Do koszyka</button>
             </div>
 
             <div class="produkt" data-nazwa="Kabel USB" data-cena="25">
                 <img src="usb.png" alt="Kabel USB">
                 <h3>Kabel USB</h3>
                 <p>25 zł</p>
-                <button class="dodaj">Do koszyka</button>
+                <button class="dodaj" data-nazwa="Kabel USB" data-cena="25">Do koszyka</button>
             </div>
 
             <div class="produkt" data-nazwa="Kamera HD" data-cena="90">
                 <img src="kamera.png" alt="Kamera HD">
                 <h3>Kamera HD</h3>
                 <p>90 zł</p>
-                <button class="dodaj">Do koszyka</button>
+                <button class="dodaj" data-nazwa="Kamera HD" data-cena="90">Do koszyka</button>
             </div>
 
             <div class="produkt" data-nazwa="Pendrive 64GB" data-cena="40">
                 <img src="pendrive.png" alt="Pendrive 64GB">
                 <h3>Pendrive 64GB</h3>
                 <p>40 zł</p>
-                <button class="dodaj">Do koszyka</button>
+                <button class="dodaj" data-nazwa="Pendrive 64GB" data-cena="40">Do koszyka</button>
             </div>
 
             <div class="produkt" data-nazwa="Hub USB" data-cena="55">
                 <img src="usbhub.png" alt="Hub USB">
                 <h3>Hub USB</h3>
                 <p>55 zł</p>
-                <button class="dodaj">Do koszyka</button>
+                <button class="dodaj" data-nazwa="Hub USB" data-cena="55">Do koszyka</button>
             </div>
         </div>
 
