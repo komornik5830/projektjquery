@@ -36,15 +36,45 @@
                 pokazKoszyk();
             });
 
+            $("#lista").on("click", ".plus", function(){
+                let nr = $(this).data("nr");
+                ilosci[nr]++;
+                pokazKoszyk();
+            });
+
+            $("#lista").on("click", ".minus", function(){
+                let nr = $(this).data("nr");
+                if (ilosci[nr] > 0) {
+                    ilosci[nr]--;
+                }
+                pokazKoszyk();
+               
+            });
+
+            $("#lista").on("click", ".usun", function(){
+                let nr = $(this).data("nr");
+                ilosci[nr] = 0;
+                pokazKoszyk();
+            });
+
             function pokazKoszyk() {
                 $("#lista").html("");
 
                 for (let i = 0; i < nazwy.length; i++) {
-                    $("#lista").append(
-                        '<div class="pozycja" data-cena="' + ceny[i] + '" data-ilosc="' + ilosci[i] + '">' +
-                        '<b>' + nazwy[i] + '</b> (' + ceny[i] + ' zł) - ' + ilosci[i] + ' szt.' +
-                        '</div>'
-                    );
+                    if (ilosci[i] > 0) {
+                        let wartosc = ceny[i] * ilosci[i];
+
+                        $("#lista").append(
+                            '<div class="pozycja" data-cena="' + ceny[i] + '" data-ilosc="' + ilosci[i] + '">' +
+                                '<b>' + nazwy[i] + '</b> (' + ceny[i] + ' zł) - ' +
+                                '<button class="minus" data-nr="' + i + '">-</button> ' +
+                                ilosci[i] + ' szt. ' +
+                                '<button class="plus" data-nr="' + i + '">+</button> = ' +
+                                '<b>' + wartosc + ' zł</b> ' +
+                                '<button class="usun" data-nr="' + i + '">Usuń</button>' +
+                                '</div>'
+                        );
+                    }
                 }
             }
         });
