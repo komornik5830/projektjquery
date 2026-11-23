@@ -76,6 +76,20 @@
                         );
                     }
                 }
+                policzSume();
+            }
+
+            function policzSume() {
+                let suma = 0;
+
+                $(".pozycja").each(function(){
+                    let cena = $(this).data("cena");
+                    let ilosc = $(this).data("ilosc");
+                    suma = suma + (cena * ilosc);
+                });
+
+                $("#suma").text(suma + " zł");
+                $("#razem").text(suma + " zł");
             }
         });
     
