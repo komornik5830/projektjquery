@@ -13,6 +13,7 @@
             let nazwy = [];
             let ceny = [];
             let ilosci = [];
+            let maRabat = false;
 
             $(".dodaj").click(function(){
                 let nazwa = $(this).data("nazwa");
@@ -57,6 +58,20 @@
                 pokazKoszyk();
             });
 
+            $("#uzyj").click(function(){
+                let wpisany = $("#kod").val();
+
+                if (wpisany == "SZKOLA10") {
+                    maRabat = true;
+                    $("#komunikat").text("Kod rabatowy aktywny (-10%)").removeClass("blad").addClass("sukces");
+                } else {
+                    maRabat = false;
+                    $("#komunikat").text("Nieprawidłowy kod rabatowy").removeClass("sukces").addClass("blad");
+                }
+
+                policzSume();
+            });
+
             function pokazKoszyk() {
                 $("#lista").html("");
 
@@ -88,6 +103,17 @@
                     suma = suma + (cena * ilosc);
                 });
 
+                let znizka = 0;
+                if (maRabat == true && suma > 0) {
+                    znizka = suma * 0.1;
+                    $("#rabatwiersz").show();
+                    $("#znizka").text("-" + znizka + " zł");
+                } else {
+                    $("#rabatwiersz").hide();
+                }
+
+                let poRabacie = suma - znizka;
+
                 let wysylka = 0;
 
                 if (suma > 0 && suma < 200) {
@@ -104,7 +130,7 @@
 
                 $("#suma").text(suma + " zł");
                 $("#wysylka").text(wysylka + " zł");
-                $("#razem").text((suma + wysylka) + " zł");
+                $("#razem").text((poRabacie + wysylka) + " zł");
             }
         });
     
