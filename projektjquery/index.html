@@ -88,8 +88,23 @@
                     suma = suma + (cena * ilosc);
                 });
 
+                let wysylka = 0;
+
+                if (suma > 0 && suma < 200) {
+                    wysylka = 15;
+                    let brakuje = 200 - suma;
+                    $("#dostawa").text("Do darmowej dostawy brakuje " + brakuje + " zł");
+                } else if (suma >= 200) {
+                    wysylka = 0;
+                    $("#dostawa").text("Darmowa dostawa");
+                } else {
+                    wysylka = 0;
+                    $("#dostawa").text("Do darmowej dostawy brakuje 200 zł");
+                }
+
                 $("#suma").text(suma + " zł");
-                $("#razem").text(suma + " zł");
+                $("#wysylka").text(wysylka + " zł");
+                $("#razem").text((suma + wysylka) + " zł");
             }
         });
     
