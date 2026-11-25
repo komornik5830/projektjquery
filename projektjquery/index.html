@@ -96,13 +96,21 @@
 
             function policzSume() {
                 let suma = 0;
+                let sztuki = 0;
 
                 $(".pozycja").each(function(){
                     let cena = $(this).data("cena");
                     let ilosc = $(this).data("ilosc");
                     suma = suma + (cena * ilosc);
+                    sztuki = sztuki + ilosc;
                 });
 
+                if(sztuki > 0){
+                    $(".ikona").html('Koszyk (<span>' + sztuki + '</span>)');
+                } else {
+                    $(".ikona").text("Koszyk jest pusty");
+                    $("#lista").html('<p class="pusty">Koszyk jest pusty</p>');
+                }
                 let znizka = 0;
                 if (maRabat == true && suma > 0) {
                     znizka = suma * 0.1;
@@ -141,7 +149,7 @@
     <div class="naglowek">
         <h1>Sklep komputerowy</h1>
         <div class="ikona">
-            Koszyk (<span id="licznik">0</span>)
+            Koszyk jest pusty
         </div>
     </div>
 
