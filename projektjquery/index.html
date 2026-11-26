@@ -107,9 +107,11 @@
 
                 if(sztuki > 0){
                     $(".ikona").html('Koszyk (<span>' + sztuki + '</span>)');
+                    $("#zamow").prop("disabled", false);
                 } else {
                     $(".ikona").text("Koszyk jest pusty");
                     $("#lista").html('<p class="pusty">Koszyk jest pusty</p>');
+                    $("#zamow").prop("disabled", true);
                 }
                 let znizka = 0;
                 if (maRabat == true && suma > 0) {
@@ -140,6 +142,21 @@
                 $("#wysylka").text(wysylka + " zł");
                 $("#razem").text((poRabacie + wysylka) + " zł");
             }
+
+            $("#zamow").click(function(){
+                let podsumowanie = "Zamówienie złożone!\nProdukty: " + $("#suma").text() + "\nDostawa: " + $("#wysylka").text() + "\nDo zapłaty: " + $("#razem").text();
+                alert(podsumowanie);
+
+                nazwy = [];
+                ceny = [];
+                ilosci = [];
+                maRabat = false;
+                $("#kod").val("");
+                $("#komunikat").text("");
+
+                pokazKoszyk();
+            });
+            
         });
     
     </script>
